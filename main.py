@@ -94,6 +94,7 @@ def home():
     about_url = url_for('about')
     peopole_says = url_for('content')
     music_url = url_for('music')
+    find_firend_url = url_for('find_firend')
     return render_template('index.html', about_url=about_url, peopole_says_url=peopole_says, music_url=music_url)
 
 
@@ -102,6 +103,7 @@ def about():
     peopole_says = url_for('content')
     home_url = url_for('home')
     music_url = url_for('music')
+    find_firend_url = url_for('find_firend')
     return render_template('about.html', home_url=home_url, peopole_says_url=peopole_says, music_url=music_url)
 
 
@@ -122,6 +124,7 @@ def content():
     home_url = url_for('home')
     about_url = url_for('about')
     music_url = url_for('music')
+    find_firend_url = url_for('find_firend')
     return render_template('content.html', home_url=home_url, about_url=about_url, music_url=music_url, all_topic=all_topic)
 
 
@@ -137,7 +140,8 @@ def music():
     home_url = url_for('home')
     about_url = url_for('about')
     people_says_url = url_for('content')
-    return render_template('music.html', home_url=home_url, about_url=about_url, people_says_url=people_says_url, music=musics)
+    find_firend_url = url_for('find_firend')
+    return render_template('music.html', find_firend_url=find_firend_url, home_url=home_url, about_url=about_url, people_says_url=people_says_url, music=musics)
 
 
 @app.route('/find-firend')
