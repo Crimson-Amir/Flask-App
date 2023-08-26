@@ -95,7 +95,7 @@ def home():
     peopole_says = url_for('content')
     music_url = url_for('music')
     find_firend_url = url_for('find_firend')
-    return render_template('index.html', about_url=about_url, peopole_says_url=peopole_says, music_url=music_url)
+    return render_template('index.html', about_url=about_url, peopole_says_url=peopole_says, music_url=music_url, find_firend_url=find_firend_url)
 
 
 @app.route('/about')
@@ -104,7 +104,7 @@ def about():
     home_url = url_for('home')
     music_url = url_for('music')
     find_firend_url = url_for('find_firend')
-    return render_template('about.html', home_url=home_url, peopole_says_url=peopole_says, music_url=music_url)
+    return render_template('about.html', home_url=home_url, peopole_says_url=peopole_says, music_url=music_url, find_firend_url=find_firend_url)
 
 
 @app.errorhandler(404)
@@ -125,7 +125,7 @@ def content():
     about_url = url_for('about')
     music_url = url_for('music')
     find_firend_url = url_for('find_firend')
-    return render_template('content.html', home_url=home_url, about_url=about_url, music_url=music_url, all_topic=all_topic)
+    return render_template('content.html', find_firend_url=find_firend_url, home_url=home_url, about_url=about_url, music_url=music_url, all_topic=all_topic)
 
 
 @app.route('/music')
