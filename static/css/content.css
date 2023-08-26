@@ -1,0 +1,85 @@
+body {
+    background-image: url('../image/con-back.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #9d9bff;
+}
+
+.list {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 13px 15px;
+}
+
+.menu {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 14px;
+    text-decoration: none;
+    color: #c0bfff;
+    font-size: 24px;
+    transition: .4s;
+}
+
+.list :hover {
+    color: #daae2c;
+    transition: .4s;
+}
+
+.topic-continer {
+    display: flex;
+    width: 95%;
+    margin: auto;
+    padding-top: 40px;
+}
+
+.main-continer {
+    display: flex;
+    width: 100%;
+    border-radius: 15px;
+    opacity: 85%;
+    background-color: rgba(21, 4, 51, 0.5);
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-topic {
+    font-family: Arial;
+    display: flex;
+    padding: 18px 50px 0 50px;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+}
+
+.body-topic {
+    font-family: Arial;
+    display: flex;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 20px 50px 0 50px;
+    text-align: justify;
+}
+
+.button-things {
+    font-family: Arial;
+    display: flex;
+    padding: 15px 50px;
+    color: #c0bfff;
+    font-size: 23px;
+}
+
+.button-things a {
+    padding: 0 5px;
+    color: #d38013;
+}
+
+.from {
+    display: flex;
+}
+
+.red {
+    color: #ff0000;
+    padding: 0 5px;
+}
