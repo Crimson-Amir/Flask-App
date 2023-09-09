@@ -19,7 +19,9 @@
 <div class="topic-continer">
     <div class="main-continer">
         <div class="body-topic">{{a[2]}}</div>
-        <a class="send-firend-requests" href="https://t.me/{{a[4]}}">Send Firend Request</a>
+        {% if a[4] %}
+            <a class="send-firend-requests" href="https://t.me/{{a[4]}}">Send Firend Request</a>
+        {% endif %}
         <div class="button-things">
             <div class="from">From {% if a[3] %} {% if a[4] %} <a target="_blank" href="https://t.me/{{a[4]}}">{{a[3]}}</a> {% else %} {{a[3]}} {% endif %} {% else %} <span class="red">Anonymous</span> {% endif %} in {{a[1]}}</div>
         </div>
