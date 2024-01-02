@@ -1,0 +1,73 @@
+body {
+    background-image: url('../image/music.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #051936;
+}
+
+.list {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 13px 15px 40px 15px;
+}
+
+.menu {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 14px;
+    text-decoration: none;
+    color: #020221;
+    font-size: 24px;
+    transition: .4s;
+}
+
+.list :hover {
+    color: #424242;
+    transition: .4s;
+}
+
+.continer-music {
+    width: 60%;
+    margin: auto;
+}
+
+.cont {
+    background-color: rgba(28, 28, 28, 0.4);
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    opacity: 87%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-things {
+    font-family: Arial;
+    display: flex;
+    padding: 8px 0 18px 0;
+    color: rgba(0, 0, 0, 0.99);
+    font-size: 19px;
+}
+
+.button-things a {
+    padding: 0 5px;
+    color: #1e1e1e;
+}
+
+.from {
+    display: flex;
+}
+
+.red {
+    color: #343434;
+    padding: 0 5px;
+}
+
+.about-things {
+    padding: 18px 20px;
+    font-size: 20px;
+    font-family: Arial;
+    color: #cccccc;
+}

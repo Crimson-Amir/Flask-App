@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>V2Ray Config Information</title>
+</head>
+<body class="dark-theme">
+
+<div class="container">
+    <form action="" method="post">
+        <div class="config-section">
+            <label for="configTextarea">Enter V2Ray Configuration:</label>
+            <textarea id="configTextarea" name="text" placeholder="Paste your V2Ray configuration here..."></textarea>
+            <button type="submit">Fetch Config Information</button>
+        </div>
+
+        <div class="info-section" id="infoSection">
+            <h2>Config Information:</h2>
+            {% if is_full %}
+            <div class="show-res-cont">
+                <div class="active">
+                    {{ clean_data.enable }}
+                </div>
+                {% if config_.obj.enable %}
+                <div class="cont-2side" style="display: flex; justify-content: space-between;">
+                    <div class="active" style="width: 49%;">
+                        Email: {{ config_.obj.email }}
+                    </div>
+                    <div class="active" style="width: 49%;">
+                        Traffic: {{ clean_data.usage_traffic }}/{{ clean_data.total_traffic }}GB
+                    </div>
+                </div>
+                <div class="cont-2side" style="display: flex; justify-content: space-between;">
+                    <div class="active" style="width: 49%;">
+                        Upload: {{ clean_data.upload_gb }} GB
+                    </div>
+                    <div class="active" style="width: 49%;">
+                        Download: {{ clean_data.download_gb }}GB
+                    </div>
+                </div>
+                <div class="active">
+                    Expiry Time: {{ clean_data.expiry_month }} ({{clean_data.days_left}} Days Left)
+                </div>
+                {% endif %}
+            </div>
+            {% else %}
+            <p id="volumeInfo">{{config_}}</p>
+            {% endif %}
+        </div>
+
+        <div class="communication-section">
+            <button type="button" onclick="toggleAdminMessage()">Contact Admin</button>
+            <div id="adminMessageSection" class="hidden">
+                <h2>Message to Admin</h2>
+                <label for="adminEmail">Your Email:</label>
+                <input type="email" id="adminEmail" name="email" placeholder="Your email...">
+                <textarea id="a" name="message" placeholder="Type your message to the admin..."></textarea>
+                <button onclick="sendAdminMessage()">Send Message</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="/css/script.js"></script>
+</body>
+</html>
