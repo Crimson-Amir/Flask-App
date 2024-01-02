@@ -2,14 +2,19 @@ import requests
 from flask import Flask, render_template, request
 import re
 import datetime
+from telegram_bot_token import telegram_bot_token
 
+ADMIN_CHAT_ID = 6450325872
+DOMAIN = "admin.ggkala.shop"
+PORT = 2053
+telegram_bot_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 auth = {'username': 'amir', 'password': 'amir'}
 
 connect = requests.Session()
 get_cookies = ""
 
 if get_cookies == "":
-    login = connect.post('https://admin.ggkala.shop:2053/login', data=auth)
+    login = connect.post(f'https://{DOMAIN}:{PORT}/login', data=auth)
     get_cookies = login.cookies.get('session')
     headers = {'Cookie': f'session={get_cookies}'}
     print(login.json())
@@ -24,15 +29,17 @@ def check_client():
         message = request.form['message']
         email = request.form['email']
         conf = request.form['text']
-        print("fyhhhhhhhhhhh", message)
         if message != "":
-            with open('./admin/admin_text.txt', 'a') as e:
-                e.write(f'\nmessage: {message}\nemail: {email}')
+            send_message = requests.post(telegram_bot_url, data={'chat_id': ADMIN_CHAT_ID,
+                                                                 "text": f"New Message From WebApp!\n\n"
+                                                                         f"• Message: {message}\n• Email: {email}"})
+            # with open('./admin/admin_text.txt', 'a') as e:
+            #     e.write(f'\nmessage: {message}\nemail: {email}')
         try:
             is_full = True
             matches = re.findall(r'[^-]+$', str(conf))[-1]
             get_client = connect.get(
-                f'https://admin.ggkala.shop:2053/panel/api/inbounds/getClientTraffics/{matches}', headers=headers)
+                f'https://{DOMAIN}:{PORT}/panel/api/inbounds/getClientTraffics/{matches}', headers=headers)
             ret_conf = dict(get_client.json())
 
             # CLEAN DATA ---------------------
