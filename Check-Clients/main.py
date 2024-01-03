@@ -2,13 +2,11 @@ import requests
 from flask import Flask, render_template, request
 import re
 import datetime
-from telegram_bot_token import telegram_bot_token
+from private import telegram_bot_token, auth, PORT
 
 ADMIN_CHAT_ID = 6450325872
 DOMAIN = "admin.ggkala.shop"
-PORT = 2053
 telegram_bot_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
-auth = {'username': 'amir', 'password': 'amir'}
 
 connect = requests.Session()
 get_cookies = ""
